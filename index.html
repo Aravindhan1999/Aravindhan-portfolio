@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aravindhan E | DevOps & Infrastructure Engineer</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#0f172a;
+    color:#f1f5f9;
+    overflow-x:hidden;
+}
+
+/* Floating Background */
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+      radial-gradient(circle at 20% 30%, #3b82f6 0%, transparent 25%),
+      radial-gradient(circle at 80% 70%, #9333ea 0%, transparent 25%);
+    z-index:-1;
+    animation:floatBg 12s infinite alternate ease-in-out;
+}
+@keyframes floatBg{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(40px);}
+}
+
+/* Navbar */
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+nav h3{color:#3b82f6;}
+nav ul{list-style:none;display:flex;gap:20px;}
+nav ul li a{text-decoration:none;color:white;transition:0.3s;}
+nav ul li a:hover{color:#3b82f6;}
+
+/* Hero */
+header{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 10%;
+}
+.hero-container{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+.hero-text h1{font-size:48px;}
+.typing{font-size:22px;color:#3b82f6;height:30px;margin-top:10px;}
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:linear-gradient(45deg,#3b82f6,#9333ea);
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.3s;
+}
+.btn:hover{transform:scale(1.1);}
+.profile-img{
+    width:250px;
+    border-radius:50%;
+    border:4px solid #3b82f6;
+}
+
+/* Sections */
+section{
+    padding:100px 10%;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+h2{text-align:center;margin-bottom:40px;}
+
+/* About */
+.about-text{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    line-height:1.8;
+}
+
+/* Skills */
+.skill{margin-bottom:20px;}
+.skill-name{margin-bottom:5px;}
+.skill-bar{
+    background:#1e293b;
+    height:10px;
+    border-radius:5px;
+    overflow:hidden;
+}
+.skill-progress{
+    height:10px;
+    width:0;
+    background:linear-gradient(45deg,#3b82f6,#9333ea);
+    border-radius:5px;
+    transition:width 2s ease;
+}
+
+/* Timeline */
+.timeline{
+    border-left:3px solid #3b82f6;
+    padding-left:20px;
+}
+.timeline-item{margin-bottom:30px;}
+
+/* Projects */
+.project-card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+.project-card:hover{transform:scale(1.05);}
+
+/* Work Photos */
+.photo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+.photo-card{
+    background:#1e293b;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    transition:0.3s;
+}
+.photo-card:hover{transform:scale(1.05);}
+.photo-card img{
+    width:100%;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* Lightbox */
+.lightbox{
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+.lightbox img{
+    max-width:80%;
+    max-height:80%;
+    border-radius:10px;
+}
+
+/* Contact */
+form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+}
+input,textarea{
+    margin-bottom:15px;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+}
+button{
+    padding:10px;
+    border:none;
+    border-radius:20px;
+    background:#3b82f6;
+    color:white;
+    cursor:pointer;
+}
+button:hover{background:#2563eb;}
+
+.social-links{text-align:center;margin-top:20px;}
+.social-links a{
+    margin:10px;
+    color:#3b82f6;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#020617;
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<nav>
+<h3>Aravindhan</h3>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<header>
+<div class="hero-container">
+<div class="hero-text">
+<h1>Aravindhan E</h1>
+<div class="typing" id="typing"></div>
+<a href="Aravindhan_Resume.pdf" class="btn" download>Download Resume</a>
+</div>
+<img src="profile.jpg" class="profile-img">
+</div>
+</header>
+
+<section id="about">
+<h2>About Me</h2>
+<div class="about-text">
+I am a DevOps and IT Infrastructure Engineer with hands-on experience in Linux server administration, AWS cloud services and large-scale monitoring environments. 
+Currently working at Autointelli Systems Pvt Ltd, I design and deploy centralized monitoring solutions using Grafana, Prometheus, InfluxDB and Telegraf. 
+
+I have implemented monitoring systems for 500+ devices including Linux, Windows, routers and switches using SNMP-based monitoring and OID mapping.
+
+My expertise includes Bash automation, incident response, performance optimization and building scalable dashboards that improve operational visibility.
+</div>
+</section>
+
+<section id="skills">
+<h2>Technical Skills</h2>
+
+<div class="skill">
+<div class="skill-name">Linux Administration</div>
+<div class="skill-bar"><div class="skill-progress" data-progress="90%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">Monitoring & Observability</div>
+<div class="skill-bar"><div class="skill-progress" data-progress="95%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">Docker & DevOps</div>
+<div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div>
+</div>
+
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+<div class="timeline">
+<div class="timeline-item">
+<h3>Autointelli Systems Pvt Ltd (Aug 2025 – Present)</h3>
+<p>Installed and maintained Linux servers, deployed Grafana dashboards, integrated Prometheus alerting and implemented SNMP-based monitoring for routers and switches.</p>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="project-card">
+<h3>Centralized Monitoring – MCE Client</h3>
+<p>Deployed monitoring solution for 500+ systems using Grafana, InfluxDB and Telegraf with real-time dashboards and alerting.</p>
+</div>
+
+<div class="project-card">
+<h3>SNMP-Based Monitoring – NxtGen Client</h3>
+<p>Configured SNMP monitoring, validated OID mapping and built dashboards for CPU, memory and network traffic.</p>
+</div>
+
+</section>
+
+<section id="work">
+<h2>Work Snapshots</h2>
+<div class="photo-grid">
+
+<div class="photo-card">
+<img src="Images/grafana-dashboard.jpg" onclick="openLightbox(this.src)">
+<p>Grafana Dashboard</p>
+</div>
+
+<div class="photo-card">
+<img src="Images/snmp-monitoring.jpg" onclick="openLightbox(this.src)">
+<p>SNMP Monitoring Setup</p>
+</div>
+
+<div class="photo-card">
+<img src="Images/proxmox.jpg" onclick="openLightbox(this.src)">
+<p>Proxmox Virtualization</p>
+</div>
+
+<div class="photo-card">
+<img src="Images/sql-dashboard.jpg" onclick="openLightbox(this.src)">
+<p>SQL Monitoring Dashboard</p>
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact Me</h2>
+
+<form action="https://formsubmit.co/aravindhane02@gmail.com" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+
+<div class="social-links">
+<a href="https://www.linkedin.com/in/aravindhan-e-0a3b7029b/" target="_blank">LinkedIn</a>
+<a href="https://github.com/Aravindhan1999" target="_blank">GitHub</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 Aravindhan E | DevOps Portfolio
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
+</div>
+
+<script>
+const textArray=["DevOps Engineer","Linux Administrator","Monitoring Specialist"];
+let index=0,charIndex=0;
+const typingElement=document.getElementById("typing");
+
+function typeEffect(){
+if(charIndex<textArray[index].length){
+typingElement.textContent+=textArray[index].charAt(charIndex);
+charIndex++;setTimeout(typeEffect,100);
+}else{setTimeout(eraseEffect,1500);}
+}
+function eraseEffect(){
+if(charIndex>0){
+typingElement.textContent=textArray[index].substring(0,charIndex-1);
+charIndex--;setTimeout(eraseEffect,50);
+}else{index=(index+1)%textArray.length;setTimeout(typeEffect,500);}
+}
+typeEffect();
+
+const skills=document.querySelectorAll(".skill-progress");
+const sections=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+skills.forEach(skill=>{
+if(skill.getBoundingClientRect().top<window.innerHeight-50){
+skill.style.width=skill.getAttribute("data-progress");
+}
+});
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+
+function openLightbox(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightbox-img").src=src;
+}
+function closeLightbox(){
+document.getElementById("lightbox").style.display="none";
+}
+</script>
+
+</body>
+</html>
